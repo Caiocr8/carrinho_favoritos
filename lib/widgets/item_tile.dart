@@ -1,11 +1,13 @@
 import 'package:add_fav/models/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:add_fav/pages/home.dart';
 
 class ItemTile extends StatelessWidget {
   final int itemNo;
+  final bool isDarkMode;
 
-  const ItemTile(this.itemNo, {super.key});
+  const ItemTile(this.itemNo, {required this.isDarkMode, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,10 @@ class ItemTile extends StatelessWidget {
         title: Text(
           'Item $itemNo',
           key: Key('text_$itemNo'),
+          style: TextStyle(
+            color: isDarkMode ? Colors.white : Colors.black,
+            fontWeight: FontWeight.bold
+          ),
         ),
         trailing: IconButton(
           key: Key('icon_$itemNo'),
